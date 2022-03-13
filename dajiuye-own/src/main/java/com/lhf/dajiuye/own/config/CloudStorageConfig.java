@@ -1,0 +1,16 @@
+package com.lhf.dajiuye.own.config;
+
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+/**
+ * 云存储配置类
+ */
+@Data
+@ConfigurationProperties(prefix = "oss.qiniu")
+public class CloudStorageConfig {
+    private String domain;
+    private String accesskey;
+    private String secretKey;
+    private String bucketName;
+}

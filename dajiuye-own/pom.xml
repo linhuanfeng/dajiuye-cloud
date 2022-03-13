@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.lhf.dajiuye</groupId>
+        <artifactId>dajiuye</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+<!--    <groupId>com.lhf.dajiuye</groupId>-->
+    <artifactId>dajiuye-own</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>dajiuye-own</name>
+    <dependencies>
+        <dependency>
+            <groupId>com.lhf.dajiuye</groupId>
+            <artifactId>spring_security</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <!--依赖公共模块-->
+        <dependency>
+            <groupId>com.lhf.dajiuye</groupId>
+            <artifactId>health-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis.spring.boot</groupId>-->
+<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--            <version>2.2.0</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+
+        <!-- Druid 数据源-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.17</version>
+        </dependency>
+
+        <!--七牛-->
+        <dependency>
+            <groupId>com.qiniu</groupId>
+            <artifactId>qiniu-java-sdk</artifactId>
+            <version>7.2.7</version>
+        </dependency>
+
+        <!--微信解密工具包-->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>1.57</version>
+        </dependency>
+
+        <!--HttpEntity<>(jsonMap, httpHeaders)可用来封装ul和请求参数-->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.6</version>
+        </dependency>
+
+        <!--引入切面-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <!--阿里云oss-->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>2.8.3</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                 <directory>src/main/resources</directory>
+                 <includes>
+                   <include>**/*.properties</include>
+                   <include>**/*.xml</include>
+                   <include>**/*.yml</include>
+                   <include>**/Dockerfile</include>
+<!--                   <include>**/*.xlsx</include>-->
+<!--                   <include>**/*.jks</include>-->
+                 </includes>
+                 <!--是否替换资源中的属性-->
+                 <filtering>false</filtering>
+               </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
