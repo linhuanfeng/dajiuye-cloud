@@ -13,7 +13,7 @@ public interface SchoolDataMapper {
      * @param schId
      * @return
      */
-    public List<School> getSchoolDataList(int schId);
+    List<School> getSchoolDataList(int schId);
 
     /**
      * 获取省份信息

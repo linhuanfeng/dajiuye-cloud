@@ -46,8 +46,8 @@ public class WxServiceImpl implements WxService {
     @Autowired
     MyUserService userService;
 
-    @Autowired
-    GetTokenByOpenIdFeignService tokenByOpenIdFeignService;
+//    @Autowired
+//    GetTokenByOpenIdFeignService tokenByOpenIdFeignService;
 
     /**
      * 解密用户的数据
@@ -66,12 +66,12 @@ public class WxServiceImpl implements WxService {
         String openId = (String)tempMap.get("openid");
 
         // 根据openId生成token(username也是openid,password也是openid)
-        UserDto userDto = new UserDto(openId, openId);
+//        UserDto userDto = new UserDto(openId, openId);
         // 新增当前用户
-        tokenByOpenIdFeignService.save(userDto);
+//        tokenByOpenIdFeignService.save(userDto);
         // 用当前用户进行登录
-        LoginTokenDto tokenDto = tokenByOpenIdFeignService.login(userDto);
-        log.error("获取到的token为{}",tokenDto);
+//        LoginTokenDto tokenDto = tokenByOpenIdFeignService.login(userDto);
+//        log.error("获取到的token为{}",tokenDto);
 
         // 2.根据sessionKey和 iv解密encryptedData，得到用户信息realMsg
         String realMsg = doGetUserInfo(encryptedData, sessionKey, iv);
@@ -80,7 +80,7 @@ public class WxServiceImpl implements WxService {
         // 2.2.调用工具函数，加密openId
 //        resMap.put("myEncrypt", EncryptUtil.encryptUtil(openId));
 
-        return updateUser(openId, sessionKey, resMap,tokenDto.getToken());
+        return updateUser(openId, sessionKey, resMap);
 //        return resMap;
     }
 
@@ -91,7 +91,7 @@ public class WxServiceImpl implements WxService {
      * @param map
      * @return User(返回用户)
      */
-    public User updateUser(String openId, String sessionKey, Map map,String token){
+    public User updateUser(String openId, String sessionKey, Map map){
         if(!StringUtils.hasLength(openId)){
             log.error("openId为null");
             return new User();
@@ -129,7 +129,7 @@ public class WxServiceImpl implements WxService {
 //        map.put("resume",resume);
 
         // 把token也设置进去
-        user.setToken(token);
+//        user.setToken(token);
 
 
         return user;

@@ -13,20 +13,6 @@ spring:
     gateway:
       # 路由规则
       routes:
-#        - id: route_dajiuye_acl
-#          uri: lb://dajiuye-acl
-#          predicates:
-#            - Path=/api/acl/**
-#          filters:
-#            - RewritePath=/api(?<segment>/?.*),$\{segment}
-
-#        - id: route_dajiuye_own
-#          uri: lb://dajiuye-own
-#          predicates:
-#            - Path=/api/own/user/handleWXMsg
-#          filters:
-#            - RewritePath=/api(?<segment>/?.*),$\{segment}
-
         - id: route_dajiuye_own
           uri: lb://dajiuye-own
           predicates:
@@ -34,8 +20,12 @@ spring:
           filters:
             - RewritePath=/api(?<segment>/?.*),$\{segment}
 
-
-
+        - id: route_dajiuye_order
+          uri: lb://dajiuye-order
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*),$\{segment}
 
 
 

@@ -3,7 +3,7 @@ package com.lhf.dajiuye.own.controller;
 import com.lhf.dajiuye.own.domain.*;
 import com.lhf.dajiuye.own.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,9 +26,7 @@ public class SchoolController {
      */
     @RequestMapping("/schooldata")
     public Object schoolList(@RequestParam(value = "schoolId",required = false,defaultValue = "0") String schId) throws IOException {
-        System.out.println("###############\n"+schId);
         List<School> schoolDataList = schoolService.getSchoolDataList(Integer.parseInt(schId));
-        System.out.println("###############\n"+schoolDataList);
         return new CommonResult<School>(schoolDataList,new Meta("获取成功",200));
     }
 
@@ -50,7 +48,7 @@ public class SchoolController {
      * @throws IOException
      */
     @RequestMapping("/jobcatdata")
-    @PreAuthorize("hasAuthority('user.list')")
+//    @PreAuthorize("hasAuthority('user.list')")
     public Object jobcatList() throws IOException {
         List<LCategory> lCategoryDataList = schoolService.getFullCategoryDataList();
         System.out.println("###############\n"+lCategoryDataList);

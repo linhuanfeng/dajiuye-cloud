@@ -1,12 +1,17 @@
 package com.lhf.dajiuye.own.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.lhf.dajiuye.own.component.ApiIdempotent;
 import com.lhf.dajiuye.own.domain.Meta;
 import com.lhf.dajiuye.own.domain.SwiperData;
 import com.lhf.dajiuye.own.domain.*;
+import com.lhf.dajiuye.own.feign.CheckTokenFeignService;
 import com.lhf.dajiuye.own.service.impl.HomeServiceImpl;
+import com.lhf.dajiuye.own.service.impl.RedisServiceImpl;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,7 +21,13 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
+    CheckTokenFeignService checkTokenFeignService;
+
+    @Autowired
     private HomeServiceImpl homeService;
+
+    @Autowired
+    private RedisServiceImpl redisService;
 
     /**
      * 获取首页轮播图图片
@@ -43,6 +54,7 @@ public class HomeController {
     }
 
     @PostMapping("/saveJob")
+    @ApiIdempotent
     public Object saveJob(@ModelAttribute("job") Job job){
         homeService.saveJob(job);
         return "保存工作成功";
@@ -64,6 +76,20 @@ public class HomeController {
         PageInfo<Job> jobDataList = homeService.getJobData(jobId,params);
         return new CommonResult2<PageInfo>(jobDataList,new Meta("获取成功",200));
     }
+
+    /**
+     * 获取热门职位
+     * @return
+     * @throws IOException
+     * 参数有jobtype=    空串
+     * 参数没有jobtype   null
+     */
+    @RequestMapping("/addJobScore")
+    public Object incrementJobScore(@RequestParam("jobId") String jobId){
+        redisService.incrementJobScore(jobId);
+        return "增加权值成功";
+    }
+
 
     /**
      * 根据id获取职位

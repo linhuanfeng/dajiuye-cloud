@@ -8,6 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @Data
 @ConfigurationProperties(prefix = "oss.qiniu")
+@Deprecated
 public class CloudStorageConfig {
     private String domain;
     private String accesskey;

@@ -2,6 +2,7 @@ package com.lhf.dajiuye.own.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.lhf.dajiuye.own.aspect.OpenIdHandle;
+import com.lhf.dajiuye.own.component.ApiIdempotent;
 import com.lhf.dajiuye.own.domain.*;
 import com.lhf.dajiuye.own.service.MyUserService;
 import com.lhf.dajiuye.own.service.UpLoadImgService;
@@ -35,7 +36,6 @@ public class UserController {
      */
     @PostMapping(value = "/saveMessage")
     public String saveMessage(@RequestBody Message msg){
-        System.out.println(msg);
         userService.saveMessage(msg);
         return "保存信息成功";
     }
@@ -47,8 +47,7 @@ public class UserController {
      */
     @PostMapping(value = "/saveMessage2")
     public String saveMessage2(@RequestBody Message msg){
-//        System.out.println(msg);
-//        msg.setFromOpenId(msg.getFromOpenId()); // 解谜出fromOpenId
+        // 解谜出fromOpenId
         User user = userService.getUserById(String.valueOf(msg.getToOpenId()));
         msg.setToOpenId(user.getOpenId()); // 将id转为对应openId
         userService.saveMessage(msg);
@@ -63,7 +62,6 @@ public class UserController {
     @GetMapping(value = "/getAllMessage")
 //    @OpenIdHandle
     public CommonResult2 getAllMessage(@RequestParam("openId") String openId){
-        log.info("getAllMessage的openId为{}==============",openId);
         List<MessageDetail> messages = userService.getAllMessageDetail(openId);
         // 这个列表只是查询到的所有信息，还得把同一个人的信息放在一起
         return new CommonResult2<List>(MessageUtil.mergeMsg(messages,openId),new Meta("获取成功",200));
@@ -77,7 +75,6 @@ public class UserController {
     @GetMapping("/getUser")
     @OpenIdHandle
     public Object getUser(@RequestParam("openId") String openId){
-        log.info("进来getuser,openId={}========",openId);
         User user = userService.getUserByOpenId(openId);
         return new CommonResult2<User>(user,new Meta("获取成功",200));
     }
@@ -89,7 +86,6 @@ public class UserController {
      */
     @GetMapping("/getusers")
     public Object TGetUsers(Params2 params2){
-        log.info("进来getuser,openId={}========",params2);
         PageInfo<User> users = userService.getUsers(params2);
         return new CommonResult2<PageInfo>(users,new Meta("获取成功",200));
     }
@@ -105,7 +101,6 @@ public class UserController {
     public Object handleWXMsg( LoginInfo loginInfo){
         User user=wxService.getUserInfo(loginInfo);
         // 新用户会被保存到数据库中，并且根据openId生成token(username也是openid,password也是openid)
-//        log.info("msg:============={}",msg);
         return new CommonResult2(user,new Meta("获取成功",200));
     }
 
@@ -116,7 +111,6 @@ public class UserController {
      */
     @GetMapping(value = "/saveDeliver")
     public String saveDeliver(@ModelAttribute Userdeliver userdeliver){
-//        System.out.println(msg);
         userService.saveDeliver(userdeliver);
 
         return "保存信息成功";
@@ -128,7 +122,6 @@ public class UserController {
      */
     @GetMapping(value = "/updateDeliver")
     public String updateDeliver(@ModelAttribute Userdeliver userdeliver){
-//        System.out.println(msg);
         userService.updateDeliver(userdeliver);
         return "保存信息成功";
     }

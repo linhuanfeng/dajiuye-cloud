@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service("homeService")
 public class HomeServiceImpl implements HomeService {
@@ -24,7 +22,7 @@ public class HomeServiceImpl implements HomeService {
     private JobDataMapper jobDataMapper;
 
     @Autowired
-    private RedisService redisService;
+    private RedisServiceImpl redisService;
 
     /**
      * 获取轮播图数据
@@ -67,10 +65,33 @@ public class HomeServiceImpl implements HomeService {
         PageHelper.startPage(pageNo,pageSize);
 
         List<Job> jobDataList = jobDataMapper.getJobDataList(jobId,params);
-        PageInfo<Job> pageInfo = new PageInfo<>(jobDataList);
+
+        List<Job> hotJobs = redisService.getHotJobs(params);
+
+        // 去重,尾加到hotJobs中
+        hotJobs=handleResult(hotJobs,jobDataList);
+
+        PageInfo<Job> pageInfo = new PageInfo<>(hotJobs);
 
         return pageInfo;
     }
+
+    private List<Job> handleResult(List<Job> hotJobs, List<Job> jobDataList) {
+        if(hotJobs==null||hotJobs.isEmpty()){
+            // hotJobs表示缓存没有，返回数据库的就行jobDataList
+            return jobDataList;
+        }
+        Map<String,String> map=new HashMap<>();
+        hotJobs.forEach(job->map.put(job.getJobId(),"1"));
+        jobDataList.forEach(job -> {
+            if(map.get(job.getJobId())==null){
+                // hotJob中不存在，就加入
+                hotJobs.add(job);
+            }
+        });
+        return hotJobs;
+    }
+
 
     /**
      * 获取职位信息2
@@ -96,7 +117,7 @@ public class HomeServiceImpl implements HomeService {
      */
     @Override
     public Job getJobById(String jobId) {
-        Job job = redisService.getJobRedis(jobId);
+        Job job = redisService.getJobRedisById(jobId);
         if(job==null){
             job = jobDataMapper.getJobById(jobId);
             redisService.saveJob(job);

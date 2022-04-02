@@ -10,7 +10,7 @@ public interface SchoolService {
      * @param schId
      * @return
      */
-    public List<School> getSchoolDataList(int schId);
+    List<School> getSchoolDataList(int schId);
 
     /**
      * 获取省信息列表

@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.hu.health","com.lhf.dajiuye.own"}) // 不然security扫描不到
+@ComponentScan({"com.hu.health","com.lhf.dajiuye.own","com.lhf.dajiuye.own.feign"}) // 不然security扫描不到
 @EnableFeignClients("com.lhf.dajiuye.own.feign")
 @EnableDiscoveryClient
 public class DajiuyeOwnApplication {

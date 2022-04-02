@@ -1,6 +1,6 @@
 package com.lhf.dajiuye.own.domain;
 
-import com.baomidou.mybatisplus.annotation.TableField;
+//import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -32,6 +32,6 @@ public class User implements Serializable {
     String honor;
     String tempJobName;
     String tempDeliverId;
-    @TableField(exist = false)
-    String token;
+//    @TableField(exist = false)
+//    String token;
 }
