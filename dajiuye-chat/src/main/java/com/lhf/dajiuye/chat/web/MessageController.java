@@ -46,7 +46,7 @@ public class MessageController {
     }
 
     /**
-     * 广播模式
+     * 广播模式 d
      * @param requestMsg
      * @return
      */
