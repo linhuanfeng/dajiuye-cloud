@@ -7,6 +7,8 @@
 
 ![输入图片说明](094c21307a8d8cfab8acffa16ce372c.png)
 
+### 技术选项
+
 #### 前端技术
 
 原生微信小程序开发
@@ -24,5 +26,6 @@ SpringCloud+SpringBoot+MySQL+Redis+RabbitMQ+WebSockket+SpringSecurity+JWT
 4、基于Redis缓存热点职位，并使用分布式锁Redisson解决缓存击穿问题，并搭建Redis-Cluster集群提高扩展性和可用性
 
 ### 下载安装
+weChat_daJiuYe2为小程序代码，其他为后端代码
 
 可加微信号`moon5672369`免费咨询
