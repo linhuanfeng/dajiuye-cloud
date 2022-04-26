@@ -7,7 +7,20 @@ spring:
     url: jdbc:mysql://localhost:3306/dajiuye?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: weiwenping
-
+  rabbitmq:
+    host: 192.168.42.100
+    virtual-host: /
+    port: 5672
+    # 生产端确认回调
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true
+    username: itcast
+    password: 123
+    listener:
+      simple:
+        acknowledge-mode: manual # 开启手动确认模式
     druid:
       #      aop-pattern: com.example.*  #监控springboot
       #      driver-class-name: com.mysql.jdbc.Driver
@@ -77,7 +90,7 @@ aliyun.fileHost: test
 wx:
   url: api.weixin.qq.com/sns/jscode2session
   appid: wxffd8f31f5bb7f05f
-  secret: cbd7c96d30b4fb835baae48dbf2c510c
+  secret: baa7959cdd43af09c9c5bcb0d3e426ea
   grant_type: authorization_code
 
 # 发送微信http请求的

@@ -11,6 +11,7 @@ import java.util.Map;
 public class MessageUtil {
     /**
      * 将所有消息归类成主人和 A 的合并在一起，和 B 合并在一起。。。
+     * 返回一个list<list>形式，内部每一个元素list对应和一个用户得信息
      * @param allMessage
      * @param ownId 主人
      * @return
@@ -64,16 +65,8 @@ public class MessageUtil {
                 }
             }
         }
-        for (Map.Entry<User, List<MessageDetail>> entry : mergeMap.entrySet()) {
-            System.out.print("用户："+entry.getKey());
-            System.out.println(" 个数："+entry.getValue().size());
-        }
-        System.out.println();
         // 我把这个merge把转为list
         List<List<MessageDetail>> lists=new ArrayList<>(mergeMap.values());
-        for (List<MessageDetail> value : mergeMap.values()) {
-            System.out.println(value);
-        }
         return lists;
     }
 }

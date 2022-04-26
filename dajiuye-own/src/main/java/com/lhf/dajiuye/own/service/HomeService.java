@@ -2,11 +2,14 @@ package com.lhf.dajiuye.own.service;
 
 import com.github.pagehelper.PageInfo;
 import com.lhf.dajiuye.own.domain.*;
+import com.lhf.dajiuye.own.feign.CheckTokenFeignService;
 
 import java.io.IOException;
 import java.util.List;
 
 public interface HomeService {
+    CheckTokenFeignService getfeign();
+
     /**
      * 获取轮播图
      * @return

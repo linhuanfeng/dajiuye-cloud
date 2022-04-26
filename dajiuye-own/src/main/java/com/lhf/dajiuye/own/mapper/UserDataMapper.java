@@ -59,6 +59,7 @@ public interface UserDataMapper {
 
     /**
      * 切记拼接字符串时空格别漏了
+     * 找到消息的发送方或接受方是openId的消息
      * @param openId
      * @return
      */

@@ -2,7 +2,7 @@ package com.lhf.dajiuye.order.strategy;
 
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 public class TokenStrategyContext {
     private CheckTokenStrategy strategy;
     public TokenStrategyContext(CheckTokenStrategy strategy){

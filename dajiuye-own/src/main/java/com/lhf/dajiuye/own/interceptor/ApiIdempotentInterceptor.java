@@ -2,6 +2,7 @@ package com.lhf.dajiuye.own.interceptor;
 
 import com.lhf.dajiuye.own.component.ApiIdempotent;
 import com.lhf.dajiuye.own.feign.CheckTokenFeignService;
+import com.lhf.dajiuye.own.service.ApiIdempotentTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -15,12 +16,13 @@ import java.lang.reflect.Method;
 //@Component // 不能自动注入，因为创建此拦截器需要用到webmvcConfigure造成循环依赖
 public class ApiIdempotentInterceptor implements HandlerInterceptor {
 
-//    @Autowired
-    CheckTokenFeignService checkTokenFeignService;
+    ApiIdempotentTokenService apiIdempotentTokenService;
 
-    public ApiIdempotentInterceptor(CheckTokenFeignService checkTokenFeignService){
-        this.checkTokenFeignService=checkTokenFeignService;
+    public ApiIdempotentInterceptor(ApiIdempotentTokenService tokenService){
+        this.apiIdempotentTokenService=tokenService;
     }
+
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -36,6 +38,6 @@ public class ApiIdempotentInterceptor implements HandlerInterceptor {
         return true;
     }
     private void check(HttpServletRequest request){
-        checkTokenFeignService.check(request);
+        apiIdempotentTokenService.checkToken(request);
     }
 }

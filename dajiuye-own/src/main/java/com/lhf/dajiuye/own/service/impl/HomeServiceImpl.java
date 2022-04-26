@@ -3,6 +3,7 @@ package com.lhf.dajiuye.own.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lhf.dajiuye.own.domain.*;
+import com.lhf.dajiuye.own.feign.CheckTokenFeignService;
 import com.lhf.dajiuye.own.mapper.JobDataMapper;
 import com.lhf.dajiuye.own.mapper.SwiperDataMapper;
 import com.lhf.dajiuye.own.service.HomeService;
@@ -14,6 +15,14 @@ import java.util.*;
 
 @Service("homeService")
 public class HomeServiceImpl implements HomeService {
+
+    @Autowired
+    CheckTokenFeignService checkTokenFeignService;
+
+    @Override
+    public CheckTokenFeignService getfeign(){
+        return checkTokenFeignService;
+    }
 
     @Autowired
     private SwiperDataMapper swiperDataMapper;

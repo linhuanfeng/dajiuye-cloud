@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class ApiIdempotentTokenServiceImpl implements ApiIdempotentTokenService {
@@ -24,7 +25,7 @@ public class ApiIdempotentTokenServiceImpl implements ApiIdempotentTokenService 
     @Override
     public long createToken() {
         long token = SnowflakeIdGenerator.getInstance().nextId();
-        redisTemplate.opsForValue().set(IdempotentTokenConstants.API_IDEMPOTENT_TOKEN_REDIS_PREFIX+token,String.valueOf(token));
+        redisTemplate.opsForValue().set(IdempotentTokenConstants.API_IDEMPOTENT_TOKEN_REDIS_PREFIX+token,String.valueOf(token),3, TimeUnit.HOURS);
         return token;
     }
 

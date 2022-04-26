@@ -63,7 +63,7 @@ public class UserController {
 //    @OpenIdHandle
     public CommonResult2 getAllMessage(@RequestParam("openId") String openId){
         List<MessageDetail> messages = userService.getAllMessageDetail(openId);
-        // 这个列表只是查询到的所有信息，还得把同一个人的信息放在一起
+        // 这个列表只是查询到的所有信息，还得把同一个人的消息放在一个list中
         return new CommonResult2<List>(MessageUtil.mergeMsg(messages,openId),new Meta("获取成功",200));
     }
 

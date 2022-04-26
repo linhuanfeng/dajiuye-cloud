@@ -1,5 +1,6 @@
 package com.lhf.dajiuye.order.controller;
 
+import com.lhf.dajiuye.order.component.ApiIdempotent;
 import com.lhf.dajiuye.order.service.ApiIdempotentTokenService;
 import com.lhf.dajiuye.order.utils.CommonResult2;
 import com.lhf.dajiuye.order.utils.Meta;
@@ -35,6 +36,18 @@ public class OrderController {
     @RequestMapping("/check")
     public Object check(HttpServletRequest request){
         apiIdempotentTokenService.checkToken(request);
+        return new CommonResult2<String>("校验成功",new Meta("获取成功",200)) ;
+    }
+
+    /**
+     * 校验token
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping("/hello")
+    @ApiIdempotent
+    public Object hello(HttpServletRequest request){
+//        apiIdempotentTokenService.checkToken(request);
         return new CommonResult2<String>("校验成功",new Meta("获取成功",200)) ;
     }
 
