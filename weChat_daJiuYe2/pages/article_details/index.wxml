@@ -1,0 +1,181 @@
+<view class="head">
+    <view class="job_up">
+        <view class="job_name">后端开发实习岗一面面经</view>
+        <view class="job_salary">{{jobObj.jobSalary}}</view>
+    </view>
+    <view class="job_down">
+        <view class="job_place"><text decode="{{true}}">#面试题目&nbsp;&nbsp;</text></view>
+        <view class="job_year padr"><text decode="{{true}}">{{jobObj.jobDayPerWeek}}&nbsp;{{jobObj.jobTimeSpan}}</text></view>
+        <view class="job_edu padr"><text decode="{{true}}">&nbsp;|&nbsp;{{jobObj.jobEdu}}</text></view>
+    </view>
+</view>
+<!-- 公司介绍 -->
+<navigator url="/pages/company_home/index?comId={{jobObj.jobComId}}" class="com_wrap">
+    <view class="com">
+        <view class="content_btm_lft">
+            <image class="" src="{{'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F003bba6c74ce151d3ce31aaa6cb7c6ecb72683e917605-ekncjt_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641826070&t=55c8ba4bfddd68da8f53d3c112c3375chttps://dajiuye2.oss-cn-shenzhen.aliyuncs.com/test/d731ae5e894b45eca768230353621e42_2021-11-24%2020%3A40%3A33-%E6%A0%A1%E6%8B%9B.jpg'}}" mode="aspectFill" />
+        </view>
+        <view class="content_btm_rgt">
+            <view class="cbr_top">一只雄安风力{{jobObj.company.comMinName}}</view>
+            <view class="cbr_btm">
+                <view class="cbr_btm_lft">
+                    <view class="l1"><text decode="{{true}}">{{jobObj.company.comIndustry}}&nbsp;昨天 21:23:12&nbsp;{{jobObj.company.comScale}}</text></view>
+                </view>
+                <view class="cbr_btm_rgt">
+                    <view class=""><text>></text></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</navigator>
+<view class="job_desc">
+    <view class="desc_title">一面面经</view>
+    <view class="desc_details">
+        <!-- <rich-text nodes="{{jobObj.jobDesc1}}"></rich-text> -->
+        <text>
+            一面（10分钟）11.5
+1、面向对象的特性
+
+2、集合（集合的子类、区别）
+
+3、String、StringBuffer、StringBuilder区别
+
+4、项目中印象深刻的问题或者设计有亮点的内容
+
+5、平时怎么计划学习方面的时间、怎么规划对自己从事的工作
+
+6、数据库的事务
+
+7、二叉树的遍历
+
+二面（20分钟）11.8
+1、线程死锁是怎么发生的、怎么处理
+
+2、线程的状态（处于运行态，下个时刻会处于什么态）（就绪态和运行态可以相互切换是怎么切换的）
+
+3、介绍一下项目
+
+4、怎么设计类
+
+5、开发中印象深刻类的设计
+
+6、面向对象的设计原则
+
+7、用过哪些设计模式
+
+8、发布订阅模式在代码层面怎么实现
+
+9、个人在哪方面有优势
+
+10、对某门课程或者知识有没有非常透的
+
+某创科技面经
+
+一面（35min）
+
+自我介绍
+
+实习项目的具体情况
+
+ES的具体操作
+
+Redis的常用数据结构
+
+如何对用户画像标签做缓存
+
+ArrayList、Linkedlist
+
+HashMap、HashTable
+
+SpringCloud的具体组件
+
+项目中网关的具体实现及作用
+
+线程、线程池的理解
+
+JVM内存模型、垃圾收集算法、判断是否可回收
+
+手撕：实现String的equals()
+
+反问环节
+
+业务及技术栈
+
+面试评价及建议
+
+二面（30min）
+自我介绍
+
+实习项目的具体情况
+
+性能优化（SQL、并发）
+
+慢SQL优化
+
+水平分库分表场景
+
+IO密集型优化
+
+和技术经理方案不同如何应对
+
+团队开发最重要的是什么
+
+敏捷开发的理解
+
+反问环节
+
+培养机制
+
+推荐书籍
+
+HR面（16min）
+
+自我介绍
+
+是否有考研打算？原因？
+
+手头上的offer
+
+对于实习的看法
+
+如何快速的学习一项技术栈
+
+近期最有成就感的事情
+
+实习的收获和感悟
+
+兴趣爱好
+
+对于自己开源项目的情况
+
+工作中冲突是如何解决的
+
+是独生子女嘛？有对象吗？
+
+工作地点的倾向
+
+对于offer的关注点
+
+反问环节
+
+工作时间
+
+培养制度
+
+总结
+
+问的偏基础，coding也是简单难度，会涉及到一些业务场景题</text>
+    </view>
+</view>
+<view class="btm_tool">
+    <view class="tool_item">
+        <view class="iconfont icon-yixianshi-"></view>
+        <view>分享</view>
+        <button open-type="share"></button>
+    </view>
+    <view class="tool_item" bindtap="handleCollectAdd">
+        <view class="iconfont  {{isCollect?'icon-shoucang':'icon-shou_cang'}}"></view>
+        <view>收藏</view>
+    </view>
+    <!-- <view class="tool_item btn_buy" id="{{submit_stat=='立即投递'?'':'isSubmit'}}" bindtap="touchphoto">{{submit_stat}}</view> -->
+</view>

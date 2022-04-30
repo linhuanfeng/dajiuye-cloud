@@ -1,0 +1,89 @@
+<view class="head">
+    <view class="job_up">
+        <view class="job_name">【社招】【字节算法 】 一面凉经 </view>
+        <view class="job_salary">{{jobObj.jobSalary}}</view>
+    </view>
+    <view class="job_down">
+        <view class="job_place"><text decode="{{true}}">#面试题目&nbsp;&nbsp;</text></view>
+        <view class="job_year padr"><text decode="{{true}}">{{jobObj.jobDayPerWeek}}&nbsp;{{jobObj.jobTimeSpan}}</text></view>
+        <view class="job_edu padr"><text decode="{{true}}">&nbsp;|&nbsp;{{jobObj.jobEdu}}</text></view>
+    </view>
+</view>
+<!-- 公司介绍 -->
+<navigator url="/pages/company_home/index?comId={{jobObj.jobComId}}" class="com_wrap">
+    <view class="com">
+        <view class="content_btm_lft">
+            <image class="" src="{{'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F003bba6c74ce151d3ce31aaa6cb7c6ecb72683e917605-ekncjt_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641826070&t=55c8ba4bfddd68da8f53d3c112c3375chttps://dajiuye2.oss-cn-shenzhen.aliyuncs.com/test/d731ae5e894b45eca768230353621e42_2021-11-24%2020%3A40%3A33-%E6%A0%A1%E6%8B%9B.jpg'}}" mode="aspectFill" />
+        </view>
+        <view class="content_btm_rgt">
+            <view class="cbr_top">一只雄安风力{{jobObj.company.comMinName}}</view>
+            <view class="cbr_btm">
+                <view class="cbr_btm_lft">
+                    <view class="l1"><text decode="{{true}}">{{jobObj.company.comIndustry}}&nbsp;昨天 21:23:12&nbsp;{{jobObj.company.comScale}}</text></view>
+                </view>
+                <view class="cbr_btm_rgt">
+                    <view class=""><text>></text></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</navigator>
+<view class="job_desc">
+    <view class="desc_title">【社招】【字节算法 】 一面凉经 </view>
+    <view class="desc_details">
+        <!-- <rich-text nodes="{{jobObj.jobDesc1}}"></rich-text> -->
+        <text>
+【社招】【字节算法 】 一面凉经 
+TL； DR
+考了一个手推梯度下降
+以及 leetcode 第四题 Median of 2 array
+
+
+其他的就是项目相关的吧
+面试过程中
+面试官有一种连场面都懒得装一下的感觉
+可能觉得和互联网相关的 算法 经验太少了
+也不太想问什么
+或者就是太忙了
+我在前脚刚说完自己的项目是怎么做的 
+用了什么模型以后
+他后脚就问 
+你这个项目是怎么做的？
+就是很明显的没有听我在说什么
+可能在回复其他人消息之类的吧
+
+然后 算法题 感觉自己还是练的太少了
+把思路说了一下
+但是没写完面试官估计就得去开下一个会了
+然后就结束了
+
+
+
+
+
+今年反正挺失利的就
+面啥啥不行
+然后觉得自己陷入了一个恶性循环
+想做 算法 但是没有 算法 相关经验
+没有 算法 相关经验就找不到 算法 相关的工作
+找不到相关工作就没有相关经验
+
+自己也很垃圾
+又不努力又笨
+还是好好 刷题 吧
+希望能早点上岸
+         </text>
+    </view>
+</view>
+<view class="btm_tool">
+    <view class="tool_item">
+        <view class="iconfont icon-yixianshi-"></view>
+        <view>分享</view>
+        <button open-type="share"></button>
+    </view>
+    <view class="tool_item" bindtap="handleCollectAdd">
+        <view class="iconfont  {{isCollect?'icon-shoucang':'icon-shou_cang'}}"></view>
+        <view>收藏</view>
+    </view>
+    <!-- <view class="tool_item btn_buy" id="{{submit_stat=='立即投递'?'':'isSubmit'}}" bindtap="touchphoto">{{submit_stat}}</view> -->
+</view>

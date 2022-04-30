@@ -1,0 +1,12 @@
+<view class="goods_info">
+    <view class="goods_info_content">
+        <image wx:if="{{schoolObj.schImg1!==''}}" mode="widthFix"  src="{{schoolObj.schImg1}}"></image>
+        <image  wx:if="{{schoolObj.schImg2!==''}}" mode="widthFix" src="{{schoolObj.schImg2}}"></image>
+    </view>
+    
+</view>
+<view class="btm_tool">
+    <view class="tool_item" bindtap="handleSecKill">
+        <view>点击秒杀</view>
+    </view>
+</view>

@@ -1,0 +1,178 @@
+<view class="head">
+    <view class="job_up">
+        <view class="job_name">java面试题库</view>
+        <view class="job_salary">{{jobObj.jobSalary}}</view>
+    </view>
+    <view class="job_down">
+        <view class="job_place"><text decode="{{true}}">#java题库&nbsp;&nbsp;</text></view>
+        <view class="job_year padr"><text decode="{{true}}">{{jobObj.jobDayPerWeek}}&nbsp;{{jobObj.jobTimeSpan}}</text></view>
+        <view class="job_edu padr"><text decode="{{true}}">&nbsp;|&nbsp;{{jobObj.jobEdu}}</text></view>
+    </view>
+</view>
+<!-- 公司介绍 -->
+<navigator url="/pages/company_home/index?comId={{jobObj.jobComId}}" class="com_wrap">
+    <view class="com">
+        <view class="content_btm_lft">
+            <image class="" src="{{'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F003bba6c74ce151d3ce31aaa6cb7c6ecb72683e917605-ekncjt_fw658&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641826070&t=55c8ba4bfddd68da8f53d3c112c3375chttps://dajiuye2.oss-cn-shenzhen.aliyuncs.com/test/d731ae5e894b45eca768230353621e42_2021-11-24%2020%3A40%3A33-%E6%A0%A1%E6%8B%9B.jpg'}}" mode="aspectFill" />
+        </view>
+        <view class="content_btm_rgt">
+            <view class="cbr_top">一只雄安风力{{jobObj.company.comMinName}}</view>
+            <view class="cbr_btm">
+                <view class="cbr_btm_lft">
+                    <view class="l1"><text decode="{{true}}">{{jobObj.company.comIndustry}}&nbsp;昨天 21:23:12&nbsp;{{jobObj.company.comScale}}</text></view>
+                </view>
+                <view class="cbr_btm_rgt">
+                    <view class=""><text>></text></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</navigator>
+<view class="job_desc">
+    <view class="desc_title">常见笔试题</view>
+    <view class="desc_details">
+        <!-- <rich-text nodes="{{jobObj.jobDesc1}}"></rich-text> -->
+        <text>1:下列概念中不属于面向对象这种编程范畴的是（）？
+
+A.对象消息
+
+B.继承多态
+
+C.类封装
+
+D.过程调用
+
+?D
+
+2:下面哪条语句把方法声明为抽象的公共方法（）？
+
+A.public abstract method（）；
+
+B.public abstract void method（）；
+
+C.public abstract void method（）{}
+
+D.public void method（）extends abstract
+
+?B
+
+3:下列选项中，抽象类的关键字是（）？
+
+A.interface
+
+B.implements
+
+C.abstract
+
+D.class
+
+?C
+
+4:下面选项中关于 abstract 的使用正确的是( )。
+
+A.private abstract void blood();
+
+B.abstract final void blood ();
+
+C.static abstract void blood ();
+
+D.public abstract void blood ();
+
+?D
+
+5:下列说法正确的有（）?
+
+A.不需要定义类，就能创建对象
+
+B.对象中必须有属性和方法
+
+C.属性必须是简单变量
+
+D.属性可以是简单变量，也可以是一个对象
+
+?D
+
+6:假设现在有一个对象X,有一个属性a.则访问当前属性的方法是（）？
+
+A.a.x
+
+B.x.a
+
+C.A.x
+
+D.X.a
+
+?D
+
+7:不允许作为类及类的成员的访问控制符的是（）？
+
+A.public
+
+B.private
+
+C.protected
+
+D.static
+
+?D
+
+8:class Card{}下列不属于Card类的构造方法的是（）？
+
+A.Card(){}
+
+B.public Card(){}
+
+C.public void Card(){}
+
+D.private Card(){}
+
+?C
+
+9:不属于封装时用到的权限控制符的是（）？
+
+A.public
+
+B.private
+
+C.protected
+
+D.static
+
+?D
+
+10:不可以用static来修饰的是（）？
+
+A.属性
+
+B.方法
+
+C.代码块
+
+D.对象
+
+?D
+
+11:如果一个类是抽象的，需要用什么修饰？
+
+A.extends
+
+B.private
+
+C.abstract
+
+D.public
+
+?C
+        </text></view>
+</view>
+<view class="btm_tool">
+    <view class="tool_item">
+        <view class="iconfont icon-yixianshi-"></view>
+        <view>分享</view>
+        <button open-type="share"></button>
+    </view>
+    <view class="tool_item" bindtap="handleCollectAdd">
+        <view class="iconfont  {{isCollect?'icon-shoucang':'icon-shou_cang'}}"></view>
+        <view>收藏</view>
+    </view>
+</view>

@@ -1,0 +1,98 @@
+<!-- 公司介绍 -->
+<view class="com_wrap" url="/pages/company_home/index?comId={{jobObj.jobComId}}">
+    <view class="com">
+        <view class="content_btm_lft">
+            <image class="" src="{{comObj.comLogo}}" mode="aspectFill" />
+        </view>
+        <view class="content_btm_rgt">
+            <view class="cbr_top">{{comObj.comMinName}}</view>
+            <view class="cbr_btm">
+                <view class="cbr_btm_lft">
+                    <view class="l1"><text decode="{{true}}">{{comObj.comIndustry}}&nbsp;|&nbsp;{{comObj.comScale}}</text></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<tabs tabs="{{tabs}}" bindtabsItemChange="handleTabsItemChange">
+    <block wx:if="{{tabs[0].isActive}}">
+        <view class="title com_intro">公司简介</view>
+        <view class="content">{{comObj.comIntro}}</view>
+        <view class="title busi_info">工商信息</view>
+        <view class="content">公司全称:{{comObj.comFullName}}</view>
+        <!-- <view class="content">法定代表人:{{comObj.comRepresentative}}</view> -->
+        <view class="content">注册资本:{{comObj.AuthCapital}}</view>
+        <view class="content">成立时间:{{comObj.incorporationDate}}</view>
+        <view class="content">企业官网：{{comObj.comWebsite}}</view>
+        <view class="title com_addr">公司地址</view>
+        <view class="content">{{comObj.comAddr}}》</view>
+        <view class="btm_tool">
+            <!-- <view class="tool_item">
+        <view class="iconfont icon-kefu"></view>
+        <view>客服</view>
+        <button open-type="contact"></button>
+    </view> -->
+            <view class="tool_item">
+                <view class="iconfont icon-yixianshi-"></view>
+                <view>分享</view>
+                <button open-type="share"></button>
+            </view>
+            <!-- <view class="tool_item" bindtap="handleCollectAdd">
+                <view class="iconfont  {{isCollect?'icon-shoucang':'icon-shou_cang'}}"></view>
+                <view>收藏</view>
+            </view> -->
+            <!-- <view class="tool_item btn_cart" bindtap="handleCartAdd">收藏</view> -->
+            <view class="tool_item btn_buy" id="{{submit_stat=='收藏'?'':'isSubmit'}}" bindtap="handleCollectAdd">
+                {{submit_stat}}
+            </view>
+        </view>
+    </block>
+    <!-- 另一个列表############################################################################################################ -->
+    <block wx:elif="{{tabs[1].isActive}}">
+        职位列表
+        <view class="job_list_wrap">
+            <!-- 职位列表 -->
+            <!-- <view class="job_list_wrap" wx:for="{{jobList}}" wx:key="jobId">
+                <view class="job_list_raw">
+                    <navigator class="" target="" url="/pages/society_details/index?jobId={{item.jobId}}" hover-class="navigator-hover" open-type="navigate">
+                        <view class="content content_top">
+                            <view class="content_top_lft">
+                                <view class="job_name">{{item.jobName}}</view>
+                                <view class="job_details">
+                                    <view class="job_city">{{item.jobPlace}}</view>
+                                    <view class="job_skill">{{item.internshipTime}}</view>
+                                    <view class="job_year">{{item.jobAge}}</view>
+                                    <view class="job_edu">{{item.jobEdu}}</view>
+                                </view>
+                            </view>
+                            <view class="content_top_rgt">
+                                <view class="job-salary">
+                                    <view class="job_skill">{{item.jobSalary}}</view>
+                                </view>
+                                <view class="job_ad">占位</view>
+                            </view>
+                        </view>
+                        <view class="content_btm">
+                            <view class="content_btm_lft">
+                                <image class="" src="https://t11.baidu.com/it/u=3140861360,148934352&fm=30&app=106&f=JPEG?w=312&h=208&s=383B76975E011B5B5A3BF5750300C068" mode="aspectFill" />
+                            </view>
+                            <view class="content_btm_rgt">
+                                <view class="cbr_top">虎牙科技</view>
+                                <view class="cbr_btm">
+                                    <view class="cbr_btm_lft">
+                                        <view class="">直播</view>
+                                        <view class="">短视频</view>
+                                        <view class="">D轮以上</view>
+                                    </view>
+                                    <view class="cbr_btm_rgt">
+                                        <view class="">13天前</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+            </view> -->
+        </view>
+    </block>
+</tabs>
