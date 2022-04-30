@@ -17,7 +17,7 @@ import java.util.Map;
  * 对openId进行加密
  * Spring AOP就是基于动态代理的，如果要代理的对象，实现了某个接⼝，那么Spring AOP会使⽤JDK代理，去创建代理对象，
  * ⽽对于没有实现接⼝的对象，就⽆法使⽤ JDK代理去进⾏代理了，这时候Spring AOP会使⽤Cglib ，
- * 这时候Spring AOP会使⽤ Cglib代理 ⽣成⼀个被代理对象的⼦类来作为代理
+ * 这时候Spring AOP会使⽤ Cglib代理 ⽣成⼀个被代理对象的⼦类来作为代理 sa
  */
 @Slf4j
 @Aspect
