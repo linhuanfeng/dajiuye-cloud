@@ -1,5 +1,6 @@
 package com.lhf.dajiuye.own.domain;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.ToString;
 
@@ -8,6 +9,7 @@ import java.util.Date;
 
 @Data
 @ToString
+@TableName("job")
 public class Job implements Serializable {
     String jobId;
     String jobSalary;

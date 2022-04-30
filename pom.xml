@@ -16,6 +16,8 @@
         <module>dajiuye-own</module>
         <module>dajiuye-gateway</module>
         <module>dajiuye-seckill</module>
+        <module>dajiuye-editor</module>
+        <module>dubbo-interface</module>
     </modules>
 
     <properties>

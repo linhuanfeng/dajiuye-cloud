@@ -1,5 +1,6 @@
 package com.lhf.dajiuye.own.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.lhf.dajiuye.own.domain.Company;
 import com.lhf.dajiuye.own.domain.Job;
 import com.lhf.dajiuye.own.domain.Params;
@@ -8,7 +9,7 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 @Mapper
-public interface JobDataMapper {
+public interface JobDataMapper extends BaseMapper<Job> {
 
     @Insert("insert into job(jobId,jobName,jobIndustry,jobPlace,jobEdu,jobDetails,jobSalary,email,jobType,jobComId,jobReleaseTime,jobAuthorId) values("+
         "#{jobId},#{jobName},#{jobIndustry},#{jobPlace},#{jobEdu},#{jobDetails},#{jobSalary},#{email},#{jobType},#{jobComId},#{jobReleaseTime},#{jobAuthorId})")
@@ -42,6 +43,17 @@ public interface JobDataMapper {
     List<Job> getJobDataList2(Params params);
 
     /**
+     * 根据公司comId返回职位列表
+     * @param comId
+     * @return
+     */
+    @Select("<script>select * from job j " +
+            "where j.jobComId=#{comId} " +
+            "order by jobReleaseTime desc</script>")
+    @ResultMap("com.lhf.dajiuye.own.mapper.JobDataMapper.jobMap") // 引用映射
+    List<Job> getJobDataListByComId(String comId);
+
+    /**
      * 根据职位分类cid返回职位列表
      * @param jobId
      * @return
@@ -60,15 +72,7 @@ public interface JobDataMapper {
             "from user_deliver d,job j,company c " +
             "where d.job_id=j.jobId and j.jobComId=c.comId and d.from_user_id=#{userId} and d.state=#{state}")
     @ResultMap("com.lhf.dajiuye.own.mapper.JobDataMapper.jobMap")
-    List<Job> getJobsFeedback(String userId, int state);
-
-    /**
-     * 获取公司信息列表数据(有Id则查找单个)
-     * @param comId
-     * @return
-     */
-    List<Company> getComDataList(String comId);
-
+    List<Job> getJobsFeedback(@Param("userId") String userId,@Param("state") int state);
 
     @Select("Select * from job j,company c where j.jobComId=c.comId and jobName like concat('%',#{query},'%') order by jobReleaseTime desc")
     @ResultMap("com.lhf.dajiuye.own.mapper.JobDataMapper.jobMap")

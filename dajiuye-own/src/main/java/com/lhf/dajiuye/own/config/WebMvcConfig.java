@@ -1,10 +1,7 @@
 package com.lhf.dajiuye.own.config;
 
-import com.lhf.dajiuye.own.feign.CheckTokenFeignService;
-import com.lhf.dajiuye.own.feign.GetTokenByOpenIdFeignService;
 import com.lhf.dajiuye.own.interceptor.ApiIdempotentInterceptor;
 import com.lhf.dajiuye.own.service.ApiIdempotentTokenService;
-import com.lhf.dajiuye.own.service.HomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

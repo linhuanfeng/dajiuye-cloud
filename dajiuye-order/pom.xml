@@ -15,7 +15,9 @@
     <name>dajiuye-order</name>
     <description>Demo project for Spring Boot</description>
 
-
+    <properties>
+        <dubbo.version>2.7.8</dubbo.version>
+    </properties>
     <dependencies>
         <!--rabbitmq-->
         <dependency>
@@ -28,13 +30,34 @@
             <artifactId>health-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId></groupId>
-            <artifactId></artifactId>
-        </dependency>
+    <!-- Dubbo Spring Boot Starter -->
+    <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo-spring-boot-starter</artifactId>
+        <version>2.7.3</version>
+    </dependency>
+    <dependency>
+        <groupId>com.101tec</groupId>
+        <artifactId>zkclient</artifactId>
+        <version>0.10</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.curator</groupId>
+        <artifactId>curator-framework</artifactId>
+        <version>2.8.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.curator</groupId>
+        <artifactId>curator-recipes</artifactId>
+        <version>2.8.0</version>
+    </dependency>
+    <!--dubbo接口-->
+    <dependency>
+        <groupId>com.lhf.dajiuye</groupId>
+        <artifactId>dubbo-interface</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </dependency>
     </dependencies>
-
-
     <build>
         <plugins>
             <plugin>

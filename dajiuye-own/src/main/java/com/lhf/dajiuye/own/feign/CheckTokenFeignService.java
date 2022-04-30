@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-//@Component
 @FeignClient(name = "dajiuye-order")
 public interface CheckTokenFeignService {
 

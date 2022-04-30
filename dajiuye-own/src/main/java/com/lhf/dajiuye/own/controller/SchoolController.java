@@ -29,29 +29,4 @@ public class SchoolController {
         List<School> schoolDataList = schoolService.getSchoolDataList(Integer.parseInt(schId));
         return new CommonResult<School>(schoolDataList,new Meta("获取成功",200));
     }
-
-    /**
-     * 获取地点信息
-     * @return
-     * @throws IOException
-     */
-    @RequestMapping("/placedata")
-    public Object placeList() throws IOException {
-        List<Province> provinceDataList = schoolService.getFullPlaceDataList();
-        System.out.println("###############\n"+provinceDataList);
-        return new CommonResult<Province>(provinceDataList,new Meta("获取成功",200));
-    }
-
-    /**
-     * 获取职位分类信息
-     * @return
-     * @throws IOException
-     */
-    @RequestMapping("/jobcatdata")
-//    @PreAuthorize("hasAuthority('user.list')")
-    public Object jobcatList() throws IOException {
-        List<LCategory> lCategoryDataList = schoolService.getFullCategoryDataList();
-        System.out.println("###############\n"+lCategoryDataList);
-        return new CommonResult<LCategory>(lCategoryDataList,new Meta("获取成功",200));
-    }
 }

@@ -3,6 +3,7 @@ package com.lhf.dajiuye.own.mapper;
 import com.lhf.dajiuye.own.domain.CatItems;
 import com.lhf.dajiuye.own.domain.SwiperData;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -12,11 +13,13 @@ public interface SwiperDataMapper {
     /**
      * 获取轮播图数据
      */
-    public List<SwiperData> getSwiperDataList();
+    @Select("select * from swiper")
+    List<SwiperData> getSwiperDataList();
 
     /**
      * 获取分类导航栏数据
      * @return
      */
-    public List<CatItems> getcatItemsDataList();
+    @Select("select * from index_cate")
+    List<CatItems> getcatItemsDataList();
 }

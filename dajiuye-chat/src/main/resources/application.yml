@@ -16,4 +16,10 @@ spring:
       simple:
         acknowledge-mode: manual # 开启手动确认模式
 server:
-  port: 9908
+  port: 9918
+
+dubbo:
+  application:
+    name: springboot-dubbo-consumer
+  registry:
+    address: zookeeper://192.168.42.101:2181

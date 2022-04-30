@@ -2,7 +2,9 @@ package com.lhf.dajiuye.chat.web;
 
 import com.lhf.dajiuye.chat.constants.WebSocketRabbitConstants;
 import com.hu.health.common.to.MessageDto;
+import com.lhf.dajiuye.dubbo.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -28,6 +30,19 @@ public class MessageController {
 
     @Resource
     private RabbitTemplate rabbitTemplate;
+
+    @Reference(interfaceClass = UserService.class,version = "1.0.0",check = false)
+    private UserService userService;
+
+    @RequestMapping("sayhello")
+    public String sayHello(){
+        return userService.sayHello();
+    }
+
+    @RequestMapping("sayhello2")
+    public String sayHello2(){
+        return "hello2";
+    }
 
     @RequestMapping("/publicnotice")
     public void publicNotice(@RequestBody MessageDto requestMsg){

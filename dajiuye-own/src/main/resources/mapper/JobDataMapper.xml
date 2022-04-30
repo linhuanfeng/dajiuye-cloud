@@ -46,39 +46,4 @@
         <association column="company" property="company" javaType="com.lhf.dajiuye.own.domain.Company" resultMap="comMap">
         </association>
     </resultMap>
-    <!--when和choose是同一等级的-->
-<!--    <select id="getJobDataList" resultMap="jobMap">-->
-<!--        select * from job j,company c-->
-<!--        <where>-->
-<!--            j.jobComId=c.comId-->
-<!--            /*大坑注意 单引号‘’默认是字符，双引号才是字符串“”*/-->
-<!--            <if test='""!=jobId and ""!=isSimilar'>-->
-<!--                and jobId!=#{jobId}-->
-<!--            </if>-->
-<!--            <if test='""!=jobId and ""==isSimilar'>-->
-<!--                and jobId=#{jobId}-->
-<!--            </if>-->
-<!--            /*type 职位类型：0表示校招，3表示实习，1表示社招，默认为空表全部*/-->
-<!--            /*type 职位类型：1表示实习，2表示校招，3表示社招，默认为空表全部*/-->
-<!--            <if test='type=="1"'>-->
-<!--                and jobType=1-->
-<!--            </if>-->
-<!--            <if test='type=="2"'>-->
-<!--                /*5天/月:所以字符串个数为4的为实习*/-->
-<!--                and jobType=2-->
-<!--            </if>-->
-<!--            <if test="type=='3'">-->
-<!--                and jobType=3-->
-<!--            </if>-->
-<!--            order by jobReleaseTime desc-->
-<!--        </where>-->
-<!--    </select>-->
-    <select id="getComDataList" parameterType="String" resultType="com.lhf.dajiuye.own.domain.Company">
-        select * from company
-        <where>
-            <if test="comId!=''">
-                and comId=#{comId}
-            </if>
-        </where>
-    </select>
 </mapper>
