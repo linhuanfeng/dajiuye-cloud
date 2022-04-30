@@ -1,0 +1,67 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 88
+# 应用名称
+spring:
+  application:
+    name: health-gateway
+  #spring.cloud.nacos.discovery.server-addr=127.0.0.1:8845
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 114.132.44.209:8848
+    gateway:
+      # 路由规则
+      routes:
+        - id: route_health_community
+          uri: lb://health-community
+          predicates:
+            - Path=/api/community/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*),$\{segment}
+
+        - id: route_health_diet
+          uri: lb://health-diet
+          predicates:
+            - Path=/api/diet/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*),$\{segment}
+
+        - id: route_health_member
+          uri: lb://health-member
+          predicates:
+            - Path=/api/ums/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*),$\{segment}
+
+        - id: route_health_search
+          uri: lb://health-search
+          predicates:
+            - Path=/api/search/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*),$\{segment}
+
+        - id: route_health_selfdiagonsis
+          uri: lb://health-selfdiagonsis
+          predicates:
+            - Path=/api/selfdiagonsis/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*),$\{segment}
+
+        - id: route_health_sport
+          uri: lb://health-sport
+          predicates:
+            - Path=/api/sport/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*),$\{segment}
+
+        - id: route_health_sleep
+          uri: lb://health-sleep
+          predicates:
+            - Path=/api/sleep/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*),$\{segment}
+
+
+
+

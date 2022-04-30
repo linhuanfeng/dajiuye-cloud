@@ -4,7 +4,7 @@ const constants = require('/common/constants')
 App({
   onLaunch: function () {
     var that = this
-    // 检测是否为iphonex xs xr
+    // 检测是否为iphonex xs xrasd
     wx.getSystemInfo({
       success: function (res) {
         var name = res.model

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.tika:tika-core:1.27">
+    <CLASSES>
+      <root url="jar://F:/apache-maven-3.8.1/maven-repo/org/apache/tika/tika-core/1.27/tika-core-1.27.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://F:/apache-maven-3.8.1/maven-repo/org/apache/tika/tika-core/1.27/tika-core-1.27-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://F:/apache-maven-3.8.1/maven-repo/org/apache/tika/tika-core/1.27/tika-core-1.27-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

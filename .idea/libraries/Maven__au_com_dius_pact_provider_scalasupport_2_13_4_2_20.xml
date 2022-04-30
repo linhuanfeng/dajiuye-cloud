@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: au.com.dius.pact.provider:scalasupport_2.13:4.2.20">
+    <CLASSES>
+      <root url="jar://F:/apache-maven-3.8.1/maven-repo/au/com/dius/pact/provider/scalasupport_2.13/4.2.20/scalasupport_2.13-4.2.20.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://F:/apache-maven-3.8.1/maven-repo/au/com/dius/pact/provider/scalasupport_2.13/4.2.20/scalasupport_2.13-4.2.20-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://F:/apache-maven-3.8.1/maven-repo/au/com/dius/pact/provider/scalasupport_2.13/4.2.20/scalasupport_2.13-4.2.20-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

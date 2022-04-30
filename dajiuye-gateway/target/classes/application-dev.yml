@@ -1,0 +1,32 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 99
+# 应用名称
+spring:
+  application:
+    name: dajiuye-gateway
+  #spring.cloud.nacos.discovery.server-addr=127.0.0.1:8845
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      # 路由规则
+      routes:
+        - id: route_dajiuye_own
+          uri: lb://dajiuye-own
+          predicates:
+            - Path=/api/own/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*),$\{segment}
+
+        - id: route_dajiuye_order
+          uri: lb://dajiuye-order
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*),$\{segment}
+
+
+
+

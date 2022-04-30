@@ -1,0 +1,37 @@
+# 应用名称
+spring:
+  application:
+    name: dajiuye-order
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #MySQL配置
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dajiuye?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: weiwenping
+  redis:
+    host: 114.132.44.209
+    port: 6379
+  rabbitmq:
+    host: 192.168.42.100
+    virtual-host: /
+    port: 5672
+    # 生产端确认回调
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true
+    username: itcast
+    password: 123
+    listener:
+      simple:
+        acknowledge-mode: manual # 开启手动确认模式
+server:
+  port: 9932
+dubbo:
+  application:
+    name: springboot-dubbo-provider
+  registry:
+    address: zookeeper://192.168.42.101:2181
+  protocol:
+    port: 20886

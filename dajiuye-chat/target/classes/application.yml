@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: dajiuye-chat
+  rabbitmq:
+    host: 192.168.42.100
+    virtual-host: /
+    port: 5672
+    # 生产端确认回调
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true
+    username: itcast
+    password: 123
+    listener:
+      simple:
+        acknowledge-mode: manual # 开启手动确认模式
+server:
+  port: 9918
+
+dubbo:
+  application:
+    name: springboot-dubbo-consumer
+  registry:
+    address: zookeeper://192.168.42.101:2181

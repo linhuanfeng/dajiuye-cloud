@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.asynchttpclient:async-http-client:2.1.0-alpha24">
+    <CLASSES>
+      <root url="jar://F:/apache-maven-3.8.1/maven-repo/org/asynchttpclient/async-http-client/2.1.0-alpha24/async-http-client-2.1.0-alpha24.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://F:/apache-maven-3.8.1/maven-repo/org/asynchttpclient/async-http-client/2.1.0-alpha24/async-http-client-2.1.0-alpha24-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://F:/apache-maven-3.8.1/maven-repo/org/asynchttpclient/async-http-client/2.1.0-alpha24/async-http-client-2.1.0-alpha24-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

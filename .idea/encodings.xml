@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/dajiuye-acl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-acl/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-chat/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-chat/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-editor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-editor/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-order/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-own/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-own/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-seckill/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dajiuye-seckill/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dubbo-interface/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dubbo-interface/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health-common/service_base/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health-common/service_base/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health-common/spring_security/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health-common/spring_security/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/health-common/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

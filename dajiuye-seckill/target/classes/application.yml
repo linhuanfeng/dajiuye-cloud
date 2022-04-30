@@ -1,0 +1,36 @@
+# 应用名称
+spring:
+  application:
+    name: dajiuye-seckill
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #MySQL配置
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dajiuye?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: weiwenping
+  redis:
+    host: 114.132.44.209
+    port: 6379
+  # 定时任务异步执行线程池配置
+  task:
+    execution:
+      pool:
+        core-size: 4
+        max-size: 10
+  rabbitmq:
+    host: 192.168.42.100
+    virtual-host: /
+    port: 5672
+    # 生产端确认回调
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true
+    username: itcast
+    password: 123
+    listener:
+      simple:
+        acknowledge-mode: manual # 开启手动确认模式
+server:
+  port: 9999

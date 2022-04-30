@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/ueditor/ueditor.config.js"></script>
+    <script src="/ueditor/ueditor.all.min.js"></script>
+    <script src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+
+<!--开发步骤
+    1.将富文本文件引入进来
+    2.编写controller代替controller.jsp
+    3.将config.json拷贝到templates下而不是放到源文件下
+    4.在ueditor.config.js
+
+	  添加： var server_url = window.location.protocol + "//"+window.location.hostname+":"+window.location.port;
+	   修改：   serverUrl: server_url + "/config"  config为后台写的controller映射地址，这里是富文本最先加载的地方
+
+-->
+
+    <div id="goodsApp">
+        content:
+        <textarea  id="container"  name="content" type="text/plain">
+            请发布你的文章
+        </textarea>
+
+    </div>
+    <!--<script src="/goods.js"></script>-->
+    <script type="text/javascript">
+
+
+        var ue = UE.getEditor('container');
+        UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+        UE.Editor.prototype.getActionUrl = function(action) {
+            console.log(action);
+            // uploadscrawl 涂鸦上传 上传的是，base64 码。
+            // uploadfile  文件 上传
+            // uploadvideo 视频 上传
+            if (action == 'uploadimage' || action == 'uploadimage') {
+                //图片上传
+                return '/ueditor/uploadimage';
+            } else if(action == 'uploadfile'){
+                //文件上传
+                return '/ueditor/uploadfile';
+            }else if(action == 'uploadscrawl'){
+                // uploadscrawl 涂鸦上传 上传的是，base64 码。
+                return '/ueditor/uploadscrawl';
+            }else if(action == 'uploadvideo'){
+                // uploadvideo 视频 上传
+                return '/ueditor/uploadvideo';
+            }else if(action == 'catchimage'){
+                //远程 图片
+                return '/ueditor/catchimage';
+            }else{
+                return this._bkGetActionUrl.call(this, action);
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>
+
