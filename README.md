@@ -28,4 +28,4 @@ SpringCloud+SpringBoot+MySQL+Redis+RabbitMQ+WebSockket+SpringSecurity+JWT
 ### 下载安装
 weChat_daJiuYe2为小程序代码，其他为后端代码
 
-可加微信号`moon5672369`免费咨询
+
