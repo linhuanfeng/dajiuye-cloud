@@ -78,9 +78,9 @@ aliyun.endPoint: oss-cn-shenzhen.aliyuncs.com
 # Bucket 域名
 aliyun.urlPrefix: https://dajiuye2.oss-cn-shenzhen.aliyuncs.com/
 # accessKey Id
-aliyun.accessKeyId: LTAI5tP7Kk3xA1M4oJawzdH7
+aliyun.accessKeyId:
 # accessKey Secret
-aliyun.accessKeySecret: rTlHPzyvVTfretbT4jPKRNaLgauMzu
+aliyun.accessKeySecret:
 # 你的Bucket名称
 aliyun.bucketName: dajiuye2
 # 目标文件夹
