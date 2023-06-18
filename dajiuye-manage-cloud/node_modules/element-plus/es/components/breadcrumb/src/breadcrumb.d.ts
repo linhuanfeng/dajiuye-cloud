@@ -1,0 +1,8 @@
+import type { ExtractPropTypes } from 'vue';
+import type Breadcrumb from './breadcrumb.vue';
+export declare const breadcrumbProps: {
+    readonly separator: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "/", boolean>;
+    readonly separatorIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, "", boolean>;
+};
+export declare type BreadcrumbProps = ExtractPropTypes<typeof breadcrumbProps>;
+export declare type BreadcrumbInstance = InstanceType<typeof Breadcrumb>;
